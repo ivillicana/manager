@@ -15,6 +15,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
         value={value}
         onChangeText={onChangeText}
         style={inputStyle}
+        autoCapitalize='none'
       />
     </View>
   );

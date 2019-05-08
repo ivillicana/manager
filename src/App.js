@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import reducers from './reducers';
 import { View, Text } from 'react-native';
 import LoginForm from './components/LoginForm';
+import { Header } from './components/common';
 
 class App extends Component {
   componentDidMount() {
@@ -22,6 +23,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={createStore(reducers)}>
+        <Header headerText="Manager" />
         <LoginForm />
       </Provider>
     );
