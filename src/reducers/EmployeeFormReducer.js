@@ -5,9 +5,10 @@ import {
 const INITIAL_STATE = {};
 
 export default (state = INITIAL_STATE, action) => {
+  // action.payload === { prop: 'name', value: 'Jane Doe' }
   switch (action.type) {
-    case INITIAL_STATE:
-      return { ...state }  
+    case EMPLOYEE_UPDATE:
+      return { ...state, [action.payload.prop]: action.payload.value };  
     default:
       return state;
   }
