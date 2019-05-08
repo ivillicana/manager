@@ -40,7 +40,7 @@ export class LoginForm extends Component {
       <Button onPress={this.onButtonPress.bind(this)}>
         Log In
       </Button>
-    )
+    );
   }
 
   render() {
