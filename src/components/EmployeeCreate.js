@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import { Picker, Text } from 'react-native';
 import { connect } from 'react-redux';
-import { employeeUpdate } from '../actions';
+import { employeeUpdate, employeeCreate } from '../actions';
 import { Card, CardSection, Input, Button } from './common';
 
 class EmployeeCreate extends Component {
   createPickers() {
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     return days.map(day => <Picker.Item key={day} label={day} value={day} />)
+  }
+
+  onButtonPress() {
+    const { name, phone, shift } = this.props;
+
+    this.props.employeeCreate({ name, phone, shift });
   }
 
   render() {
@@ -33,8 +39,7 @@ class EmployeeCreate extends Component {
 
         <CardSection style={{ flexDirection: 'column' }}>
           <Text style={styles.pickerTextStyle}>Shift</Text>
-          <Picker
-            style={{ flex: 1 }}
+          <Picker   
             selectedValue={this.props.shift}
             onValueChange={value => this.props.employeeUpdate({ prop: 'shift', value })}
           >
@@ -43,7 +48,7 @@ class EmployeeCreate extends Component {
         </CardSection>
 
         <CardSection>
-          <Button>
+          <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
         </CardSection>
@@ -64,4 +69,4 @@ const mapStateToProps = state => {
   return { name, phone, shift };
 }
 
-export default connect(mapStateToProps, { employeeUpdate })(EmployeeCreate);
+export default connect(mapStateToProps, { employeeUpdate, employeeCreate })(EmployeeCreate);
