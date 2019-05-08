@@ -6,6 +6,7 @@ import {
   LOGIN_USER_PENDING
 } from './types';
 import firebase from 'firebase';
+import { Actions } from 'react-native-router-flux';
 
 
 export const emailChanged = (text) => {
@@ -40,7 +41,9 @@ const loginUserSuccess = (dispatch, user) => {
   dispatch({
     type: LOGIN_USER_SUCCESS,
     payload: user
-  })
+  });
+  
+  Actions.employeeList();
 }
 
 const loginUserFail = dispatch => {
