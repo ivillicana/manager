@@ -9,7 +9,7 @@ class EmployeeCreate extends Component {
         <CardSection>
           <Input 
             label="Name"
-            placeholder="Jane"
+            placeholder="Jane Doe"
           />
         </CardSection>
 
@@ -22,7 +22,7 @@ class EmployeeCreate extends Component {
 
         <CardSection>
         </CardSection>
-        
+
         <CardSection>
           <Button>
             Create
